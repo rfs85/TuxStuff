@@ -4,7 +4,7 @@ import os,time
 
 
 print """
-CentOS Initial Script Install   
+CentOS Initial Script Install	
 
 v0.1
 
@@ -22,27 +22,29 @@ print ("\n Configurar Bash profile,rc e aliases...\n ")
 opc1=raw_input("Download bash profile? (y/n)\n")
 
 if opc1 == "y":
-        print("Entering in Home Dir...\n")
-        os.system("cd $USER")
-        print("\nDownloading Bash Profile FIles...\n")
-        os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bash_aliases")
-        os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bashrc")
-        print("Done :)")
+	print("Entering in Home Dir...\n")
+	os.system("cd $USER")
+	os.system('rm .bash*')
+	print("\nDownloading Bash Profile FIles...\n")
+	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bash_aliases")
+	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bashrc")
+	print("Done :)")
 
 elif opc1 == "n":
-        print("\n Jumping to the next config...\n")
-        time.sleep(3)
+	print("\n Jumping to the next config...\n")
+	time.sleep(3)
+
 
 #Modificar VIM COnfigs
-print("\n COnfigurar opcoes VIM e adicionar templates...\n")
+print("\n Configurar opcoes VIM e adicionar templates...\n")
 
 opc2 = raw_input("\nDownload VIM Files? (y/n)\n")
 
 if opc2 == "y":
-        print("\nEntering in .vim config dir...\n")
-        os.system("cd $USER/.vim")
-        os.system("wget http://www.files.binarymedia.pt/vim_profile.tar.gz")
-        os.system("tar xvfz vim_profile.tar.gz")
+	print("\nEntering in .vim config dir...\n")
+	os.system("cd $USER/.vim")
+	os.system("wget http://www.#/vim_profile.tar.gz")
+	os.system("tar xvfz vim_profile.tar.gz") 
 elif opc2 == "n":
         print("\n Jumping to the next config...\n")
         time.sleep(3)
@@ -56,18 +58,27 @@ print("Configurar  Acessos SSH...")
 opc3=raw_input("\nDownload SSH Files? (y/n)\n")
 
 if opc3=="y":
-        print("Entering SSH Config Dir...\n")
-        os.system("cd $USER/.ssh")
-        print("\nDownload Files...\n")
-        os.system("wget http://www.#.pt/ssh_profile.tar.gz")
-        os.system("tar xvfz ssh_profile.tar.gz")
-        os.system("cd /etc && echo 'Banner /etc/banner' >> /etc/ssh/sshd_config")
-        os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/banner")
+	print("Entering SSH Config Dir...\n")
+	os.system("cd $USER/.ssh")
+	print("\nDownload Files...\n")
+	try:
+		os.system("wget http://www.#/ssh_profile.tar.gz")
+	except Exception, e:
+		raise e
+		print('Error downloading package!')
+	try:
+		os.system("tar xvfz ssh_profile.tar.gz")
+	except Exception, e:
+		raise e
+		print('Nothing to extract!')
+	
+	os.system("echo 'Banner /etc/banner' >> /etc/ssh/sshd_config")
+	os.system("cd /etc && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/banner")
 elif opc3=="n":
-        print("\nJumping to the next config...\n")
-        time.sleep(3)
+	print("\nJumping to the next config...\n")
+	time.sleep(3)
 else :
-        print("Option Invalid...")
+	print("Option Invalid...")
 
 
 
@@ -76,12 +87,11 @@ else :
 #Init Bash
 opc = raw_input("Bash Reload? (y/n)\n")
 if opc == "y":
-        os.system("bash")
+	os.system("bash")
 elif opc == "n":
-        print("Nothing to do, move along!")
+	print("Nothing to do, move along!")
 
 else:
-        print("\nOption Wrong!")
+	print("\nOption Wrong!")
 
 
-        
