@@ -3,6 +3,18 @@
 import os,time
 
 
+####### Goals ######
+#Mudar Hostname
+#Mudar Bash Shell
+#Mudar Banner SSH
+#Mudar MotD
+#Mudar Vim Configs
+#Create dir old configs
+
+UBUNTU_MOTD="/etc/update-motd.d/"
+CENTOS_MOTD="/etc/motd"
+
+
 print """
 CentOS Initial Script Install	
 
@@ -10,18 +22,12 @@ v0.1
 
 """
 
-#Mudar Hostname
-#/etc/sysconfig/network
-#Mudar Banner
-#Mudar MotD
-os.system("cat /etc/motd")
-
 ###### Entra na Home e muda Configs #######
 print ("\n Configurar Bash profile,rc e aliases...\n ")
 
-opc1=raw_input("Download bash profile? (y/n)\n")
+opc0=raw_input("Download bash profile? (y/n)\n")
 
-if opc1 == "y":
+if opc0 == "y":
 	print("Entering in Home Dir...\n")
 	os.system("cd $USER")
 	os.system('rm .bash*')
@@ -30,22 +36,51 @@ if opc1 == "y":
 	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bashrc")
 	print("Done :)")
 
-elif opc1 == "n":
+elif opc0 == "n":
 	print("\n Jumping to the next config...\n")
-	time.sleep(3)
+	time.sleep(2)
+
+
+
+#### Configure MotD #####
+
+print('\n Downloading MotD File...\n')
+
+opc1=raw_input("Download MotD file? (y/n)")
+
+if opc1 == "y":
+	print("""
+		1 --> CentOS
+		2 --> Ubuntu
+		3 --> Arch (soon)
+
+		""")
+	osopc=raw_input('Choose OS : ')
+	if osopc =="1":
+		print('Downloading file from Git to CentOS...')
+		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd ')
+		os.system('mv -f motd ' + CENTOS_MOTD)
+		return print('MotD changed...\n')
+	elif osopc== "2":
+		print('Downloading file from Git to Ubuntu...')
+		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd ')
+		os.system('mv motd ' + UBUNTU_MOTD + '01-mydefault')
+		return print('MotD changed...\n')		
+	else:
+		return print('\nMore soon...')
 
 
 #Modificar VIM COnfigs
 print("\n Configurar opcoes VIM e adicionar templates...\n")
 
-opc2 = raw_input("\nDownload VIM Files? (y/n)\n")
+viopc = raw_input("\nDownload VIM Files? (y/n)\n")
 
-if opc2 == "y":
+if viopc == "y":
 	print("\nEntering in .vim config dir...\n")
 	os.system("cd $USER/.vim")
 	os.system("wget http://www.#/vim_profile.tar.gz")
 	os.system("tar xvfz vim_profile.tar.gz") 
-elif opc2 == "n":
+elif viopc == "n":
         print("\n Jumping to the next config...\n")
         time.sleep(3)
 
@@ -53,7 +88,7 @@ elif opc2 == "n":
 
 ################### SSH Configs  ####################
 #Entra na Dir, Sacar Ficheiro da Web
-print("Configurar  Acessos SSH...")
+print("Configurar parametros SSH...")
 
 opc3=raw_input("\nDownload SSH Files? (y/n)\n")
 
