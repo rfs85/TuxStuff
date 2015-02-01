@@ -3,20 +3,23 @@
 import os,time
 
 
-####### Goals ######
+####### Goals v0.1 ######
 #Mudar Hostname
 #Mudar Bash Shell
 #Mudar Banner SSH
 #Mudar MotD
 #Mudar Vim Configs
-#Create dir old configs
+####### Goals v0.2 ######
+#Create backup old configs
+#Create Git interface
+#Log managment
 
 UBUNTU_MOTD="/etc/update-motd.d/"
 CENTOS_MOTD="/etc/motd"
 
 
 print """
-CentOS Initial Script Install	
+Linux Initial Script Install	
 
 v0.1
 
