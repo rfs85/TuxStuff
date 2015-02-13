@@ -63,14 +63,14 @@ if opc1 == "y":
 		print('Downloading file from Git to CentOS...')
 		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd ')
 		os.system('mv -f motd ' + CENTOS_MOTD)
-		return print('MotD changed...\n')
+		print('MotD changed...\n')
 	elif osopc== "2":
 		print('Downloading file from Git to Ubuntu...')
 		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd ')
 		os.system('mv motd ' + UBUNTU_MOTD + '01-mydefault')
-		return print('MotD changed...\n')		
+		print('MotD changed...\n')		
 	else:
-		return print('\nMore soon...')
+		print('\nMore soon...')
 
 
 #Modificar VIM COnfigs
