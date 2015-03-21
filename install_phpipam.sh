@@ -8,7 +8,8 @@ apt-get upgrade
 
 ## Install Apache , MySQL
 
-apt-get install -y apache2 php5 php5-mysql libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql libgmp-dev
+
+apt-get install -y apache2 php5 php5-mysql libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql libgmp-dev php-pear php5-gmp php5-ldap
 
 ## Install PHP
 
@@ -24,4 +25,6 @@ sudo service apache2 restart
 
 wget http://downloads.sourceforge.net/project/phpipam/phpipam-1.1.010.tar
 tar -xf phpipam-1.1.010.tar 
-mv phpipam /var/www
+mv phpipam /var/www/html
+
+a2enmod rewrite
