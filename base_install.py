@@ -35,8 +35,8 @@ if opc0 == "y":
 	os.system("cd $USER")
 	os.system('rm .bash*')
 	print("\nDownloading Bash Profile FIles...\n")
-	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bash_aliases")
-	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bashrc")
+	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bash_aliases --no-check-certificate")
+	os.system("wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/.bashrc --no-check-certificate")
 	print("Done :)")
 
 elif opc0 == "n":
@@ -61,12 +61,12 @@ if opc1 == "y":
 	osopc=raw_input('Choose OS : ')
 	if osopc =="1":
 		print('Downloading file from Git to CentOS...')
-		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd ')
+		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd --no-check-certificate')
 		os.system('mv -f motd ' + CENTOS_MOTD)
 		print('MotD changed...\n')
-	elif osopc== "2":
+	elif osopc== "2":--no-check-certificate
 		print('Downloading file from Git to Ubuntu...')
-		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd ')
+		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd --no-check-certificate')
 		os.system('mv motd ' + UBUNTU_MOTD + '01-mydefault')
 		print('MotD changed...\n')		
 	else:
@@ -111,7 +111,7 @@ if opc3=="y":
 		print('Nothing to extract!')
 	
 	os.system("echo 'Banner /etc/banner' >> /etc/ssh/sshd_config")
-	os.system("cd /etc && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/banner")
+	os.system("cd /etc && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/banner --no-check-certificate")
 elif opc3=="n":
 	print("\nJumping to the next config...\n")
 	time.sleep(3)
