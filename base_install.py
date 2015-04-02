@@ -64,7 +64,7 @@ if opc1 == "y":
 		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd --no-check-certificate')
 		os.system('mv -f motd ' + CENTOS_MOTD)
 		print('MotD changed...\n')
-	elif osopc== "2":--no-check-certificate
+	elif osopc== "2":--no-check-certificate:
 		print('Downloading file from Git to Ubuntu...')
 		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd --no-check-certificate')
 		os.system('mv motd ' + UBUNTU_MOTD + '01-mydefault')
