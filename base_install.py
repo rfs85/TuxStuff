@@ -68,7 +68,12 @@ if opc1 == "y":
 		print('Downloading file from Git to Ubuntu...')
 		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd --no-check-certificate')
 		os.system('mv motd ' + UBUNTU_MOTD + '01-mydefault')
-		print('MotD changed...\n')		
+		print('MotD changed...\n')
+	elif osopc== "3":
+		print('Downloading file from Git to ArchLinux...')
+		os.system('cd /tmp && wget https://raw.githubusercontent.com/RubenFilipe/TuxStuff/master/motd --no-check-certificate')
+		os.system('mv motd ' + UBUNTU_MOTD + '01-mydefault')
+		print('MotD changed...\n')			
 	else:
 		print('\nMore soon...')
 
@@ -122,14 +127,46 @@ else :
 
 ############# FIM SSH CONFIGS ########################
 
+
+################## Add Linux Group and user ########################
+
+
+
+
+
+grupo = raw_input("Group Name: ")
+user = raw_input("User Name: ")
+#Group = fungus
+#User = synman
+add_group = "groupadd" +  grupo
+add_user = "useradd -G " + grupo + user 
+check_groups = "grep " + grupo + " /etc/group"
+
+def manager_groups(grupo):
+	print("Adding group\n")
+	os.system(add_group)
+
+def manage_users(user):
+	print("Adding user\n")
+	os.system(add_user)
+	
+
+
+
+
+##################### fim Add Group & Users ################################
+
+
+
+
+
 #Init Bash
 opc = raw_input("Bash Reload? (y/n)\n")
 if opc == "y":
 	os.system("bash")
 elif opc == "n":
-	print("Nothing to do, move along!")
+	print("Nothing more to do, move along!")
 
 else:
 	print("\nOption Wrong!")
-
 
