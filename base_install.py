@@ -133,14 +133,14 @@ else :
 
 
 
-
-grupo = raw_input("Group Name: ")
-user = raw_input("User Name: ")
-#Group = fungus
-#User = synman
-add_group = "groupadd" +  grupo
-add_user = "useradd -G " + grupo + user 
-check_groups = "grep " + grupo + " /etc/group"
+def user_gro():
+	grupo = raw_input("Group Name: ")
+	user = raw_input("User Name: ")
+	#Group = fungus
+	#User = synman
+	add_group = "groupadd" +  grupo
+	add_user = "useradd -G " + grupo + user 
+	check_groups = "grep " + grupo + " /etc/group"
 
 def manager_groups(grupo):
 	print("Adding group\n")
