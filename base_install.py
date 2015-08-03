@@ -152,7 +152,7 @@ def manage_users(user):
 	
 
 hostname = raw_input("Hostname --> ")
-os.system(hostname "> /etc/hostname")
+os.system(hostname + "> /etc/hostname")
 
 ##################### fim Add Group & Users ################################
 
