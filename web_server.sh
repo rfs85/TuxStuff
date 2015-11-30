@@ -4,9 +4,8 @@ sudo apt-get install apache2
 sudo service apache2 restart
 
 ###PHP
-sudo apt-get install php5 libapache2-mod-php5
-sudo apt-get install php5-cli
-sudo apt-get install php5-mysql
+sudo apt-get install php5 libapache2-mod-php5 php5-cli php5-mysql
+
 
 ###SSH Server
 sudo apt-get install openssh-server
