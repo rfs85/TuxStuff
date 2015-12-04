@@ -3,6 +3,9 @@
 sudo apt-get install apache2
 sudo service apache2 restart
 
+groupadd webserver
+useradd -d /var/www/ -g webserver -s /bin/nologin webserver
+
 ###PHP
 sudo apt-get install php5 libapache2-mod-php5 php5-cli php5-mysql
 
