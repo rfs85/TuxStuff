@@ -9,7 +9,7 @@ apt-get upgrade
 ## Install Apache , MySQL
 
 
-apt-get install -y apache2 php5 php5-mysql libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql libgmp-dev php-pear php5-gmp php5-ldap
+apt-get install -y apache2 php5 php5-mysql libapache2-mod-php5 mysql-server libgmp-dev php-pear php5-gmp php5-ldap
 
 ## Install PHP
 
